@@ -768,3 +768,146 @@ body.is-ready .anim{
   .hero__media img{ transform:none; }
   [data-reveal], .anim{ opacity:1 !important; transform:none !important; }
 }
+
+/* =========================================================
+   VERSÃO MOBILE
+   Ajustes específicos para celular. Este bloco vem por último
+   de propósito: ele vence os breakpoints declarados acima.
+   ========================================================= */
+
+.mbar{ display:none; }
+
+@media (max-width:860px){
+
+  :root{ --sec-y:clamp(56px, 9vw, 88px); }
+
+  /* ---- tipografia: os títulos estouravam a tela ---- */
+  .h2{ font-size:clamp(1.85rem, 8.4vw, 2.7rem); line-height:.98; }
+  .hero__title b{ font-size:clamp(2.6rem, 12.2vw, 4.4rem); }
+  .form__t{ font-size:1.5rem; margin-bottom:20px; padding-bottom:16px; }
+  .h2, .hero__title b, .plan h3, .srv__body b, .team__info h3, .form__t, .depo__c footer b{
+    overflow-wrap:break-word;
+  }
+
+  /* ---- respiro: sobrava tela preta vazia ---- */
+  .eyebrow{ margin-bottom:14px; letter-spacing:.15em; }
+  .sec__head{ margin-bottom:30px; gap:20px; }
+  .sec__head--center .sec__head-note{ margin-top:14px; }
+  .lead{ margin-top:16px; }
+  .body{ margin-top:12px; }
+  .ticks{ margin-top:22px; gap:12px; }
+  .sobre__sign{ margin-top:24px; padding-top:18px; }
+  .info{ margin-top:26px; gap:20px; }
+
+  /* ---- hero ---- */
+  .hero{ padding-top:96px; }
+  .hero__in{ padding-bottom:30px; }
+  .hero__sub{ margin-top:18px; }
+  .hero__btns{ margin-top:26px; }
+  .hero__bar{ padding:14px var(--pad) 18px; gap:14px; }
+  .hero__stats{ width:100%; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .stat{ flex-direction:column; align-items:flex-start; gap:2px; }
+  .stat b{ font-size:1.65rem; }
+  .stat span{ font-size:.56rem; letter-spacing:.1em; line-height:1.35; }
+
+  /* ---- serviços: seta removida, preço alinhado ---- */
+  .srv__row{
+    grid-template-columns:34px 1fr auto;
+    grid-template-areas:'n body price' 'n time price';
+    gap:2px 12px; padding:20px 2px;
+  }
+  .srv__go{ display:none; }
+  .srv__n{ align-self:start; padding-top:5px; }
+  .srv__price{ align-self:center; font-size:1.45rem; }
+  .srv__time{ font-size:.63rem; }
+  .srv__body small{ font-size:.85rem; margin-top:5px; }
+
+  /* ---- planos ---- */
+  .plan{ padding:28px 22px 26px; }
+  .plan header p{ min-height:0; }
+  .plan__price{ margin:18px 0 2px; padding-top:18px; }
+  .plan ul{ margin:20px 0 24px; }
+
+  /* ---- equipe: nome e função empilhados, Instagram ao lado ---- */
+  .team__img{ aspect-ratio:3/3.15; }
+  .team__info{
+    display:grid; grid-template-columns:1fr auto;
+    grid-template-areas:'nome ig' 'func ig';
+    align-items:end; gap:6px 14px; padding:20px;
+  }
+  .team__info h3{ grid-area:nome; align-self:end; }
+  .team__info p{ grid-area:func; margin-top:0; }
+  .team__info a{ grid-area:ig; align-self:end; }
+
+  /* ---- formulário: 16px evita o zoom automático do iOS ---- */
+  .f input, .f select, .f textarea{ font-size:16px; padding:13px 14px; }
+  .chips{ gap:8px; }
+  .chip{ flex:1 1 30%; text-align:center; padding:12px 10px; }
+
+  /* ---- alvos de toque de 44px ---- */
+  .ft__col a, .ft__col p{ padding:10px 0; }
+  .link-ig{ padding:11px 0; }
+  .menu__link{ display:inline-block; padding:8px 0; }
+  .info li a{ display:inline-block; padding:3px 0; }
+  .depo__ctrl button{ width:46px; height:46px; }
+
+  /* ---- barra de ação fixa no rodapé ---- */
+  .wa-float{ display:none; }
+  .totop{
+    right:14px; width:40px; height:40px;
+    bottom:calc(84px + env(safe-area-inset-bottom, 0px));
+  }
+  .totop svg{ width:15px; height:15px; }
+
+  .mbar{
+    display:grid; grid-template-columns:1fr 1fr; gap:10px;
+    position:fixed; left:0; right:0; bottom:0; z-index:90;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+    background:rgba(8,8,10,.93);
+    backdrop-filter:blur(16px) saturate(140%);
+    -webkit-backdrop-filter:blur(16px) saturate(140%);
+    border-top:1px solid var(--line);
+    transform:translateY(115%);
+    transition:transform .45s var(--ease);
+  }
+  .mbar.is-on{ transform:none; }
+  .mbar__btn{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    height:50px; border-radius:6px;
+    font-size:.75rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+  }
+  .mbar__btn svg{ width:19px; height:19px; }
+  .mbar__btn--gold{ background:var(--gold); color:#0A0A0B; }
+  .mbar__btn--wa{ background:#25D366; color:#06130A; }
+  .mbar__btn:active{ transform:scale(.97); }
+
+  /* espaço para a barra não cobrir o fim do rodapé */
+  .ft__bot{ padding-bottom:calc(88px + env(safe-area-inset-bottom, 0px)); }
+
+  /* com o menu aberto a barra sai da frente */
+  body.is-locked .mbar{ transform:translateY(115%); }
+}
+
+@media (max-width:420px){
+  .stat b{ font-size:1.45rem; }
+  .stat span{ font-size:.53rem; }
+  .mbar__btn{ font-size:.7rem; letter-spacing:.1em; }
+  .srv__price{ font-size:1.3rem; }
+  .badge-est{ width:76px; height:76px; }
+  .badge-est span{ font-size:1.25rem; }
+}
+
+/* telas curtas e deitadas: o hero não precisa ocupar tudo */
+@media (max-height:520px) and (orientation:landscape){
+  .hero{ min-height:auto; padding-top:110px; padding-bottom:20px; }
+  .hero__bar{ position:static; }
+}
+
+/* alvos de toque restantes — mínimo de 44px recomendado para o dedo */
+@media (max-width:860px){
+  .brand{ min-height:44px; }
+  .ft__social a, .team__info a{ width:44px; height:44px; }
+  .info li a{ padding:7px 0; }
+  .lb__x{ width:48px; height:48px; display:grid; place-items:center; top:12px; right:12px; }
+  .menu__nav a{ min-height:56px; align-items:center; }
+}

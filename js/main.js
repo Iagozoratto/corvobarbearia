@@ -215,6 +215,7 @@
 
     var down = false, x0 = 0, s0 = 0;
     rail.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse') return;   // no touch, deixa o scroll nativo
       down = true; x0 = e.clientX; s0 = rail.scrollLeft;
       rail.classList.add('is-drag');
     });
@@ -338,6 +339,23 @@
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
     secs.forEach(function (s) { io.observe(s); });
+  })();
+
+  /* ---------------------------------------------------------
+     BARRA DE AÇÃO MOBILE — entra depois que o hero sai da tela,
+     para não competir com os botões do próprio hero
+     --------------------------------------------------------- */
+  (function mobileBar() {
+    var bar = $('#mbar');
+    if (!bar) return;
+    var hero = $('.hero');
+    var onScroll = function () {
+      var limite = hero ? hero.offsetHeight * 0.75 : 500;
+      bar.classList.toggle('is-on', window.scrollY > limite);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    onScroll();
   })();
 
   /* ---------------------------------------------------------

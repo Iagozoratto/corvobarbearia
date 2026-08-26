@@ -14,6 +14,37 @@ Depois abra http://localhost:8131
 
 Também funciona abrindo `index.html` direto no navegador.
 
+### Testar no celular
+
+O servidor aceita conexões da rede local. Com o computador e o celular no
+mesmo Wi-Fi, abra no navegador do celular:
+
+```
+http://192.168.15.11:8131
+```
+
+O IP muda se a rede mudar. Para descobrir o atual:
+`ipconfig` e procure o IPv4 do adaptador Wi-Fi.
+
+## Mobile
+
+O site é responsivo, com três faixas de ajuste: até 860px (celular e tablet
+em pé), até 420px (celulares estreitos) e uma regra extra para tela deitada
+e baixa.
+
+O que muda no celular:
+
+- Barra de ação fixa no rodapé com **Agendar** e **WhatsApp**, que entra em
+  cena depois que o hero sai da tela
+- O botão flutuante do WhatsApp é escondido, já que a barra cobre a função
+- Menu em tela cheia pelo ícone de três traços
+- Lista de serviços sem a seta, com o preço alinhado à direita
+- Cartões de equipe com nome e função empilhados
+- Campos do formulário em 16px, o que evita o zoom automático do iOS
+- Alvos de toque com no mínimo 44px
+- Arrastar os depoimentos só responde ao mouse, para não competir com o
+  scroll vertical do dedo
+
 ## Estrutura
 
 ```

@@ -6,6 +6,9 @@
 <title>CORVO — Barbearia | Corte, Barba e Navalha em São Paulo</title>
 <meta name="description" content="CORVO Barbearia. Cortes clássicos e modernos, barba na navalha e atendimento sob hora marcada no coração de São Paulo. Agende pelo WhatsApp." />
 <meta name="theme-color" content="#0A0A0B" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="CORVO" />
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
 <meta property="og:type" content="website" />
@@ -16,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css?v=2" />
 </head>
 <body>
 
@@ -675,6 +678,14 @@
   </div>
 </footer>
 
+<!-- ============ BARRA DE AÇÃO (MOBILE) ============ -->
+<div class="mbar" id="mbar">
+  <a href="#contato" class="mbar__btn mbar__btn--gold">Agendar</a>
+  <a href="https://wa.me/5511988774321?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20CORVO." target="_blank" rel="noopener" class="mbar__btn mbar__btn--wa">
+    <svg><use href="#i-wa"/></svg> WhatsApp
+  </a>
+</div>
+
 <!-- ============ FLUTUANTES ============ -->
 <a class="wa-float" href="https://wa.me/5511988774321?text=Ol%C3%A1!%20Quero%20agendar%20um%20hor%C3%A1rio%20na%20CORVO." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   <svg><use href="#i-wa"/></svg>
@@ -689,6 +700,6 @@
   <figure class="lb__fig"><img id="lbImg" alt="" /><figcaption id="lbCap"></figcaption></figure>
 </div>
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v=2"></script>
 </body>
 </html>
